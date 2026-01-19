@@ -44,19 +44,22 @@ jobs:
             libxkbcommon-dev 
             libinput-dev 
             libx11-dev
+            platformio-core 
+            platformio-core-pyc 
+            py3-meshtastic
+            py3-pip
     
-      - name: Run script inside Alpine chroot as the default user (unprivileged)
+      - name: Print environment
         run: |
-          ls -la  # as you would expect, you're in your workspace directory
           gcc --version
           cat /etc/alpine-release
           cat /etc/apk/repositories
-          apk update
-          apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip
-          pio run
         shell: alpine.sh --root {0}
 
-
+      - name: Build pio project
+        run: |
+          pio run
+        shell: alpine.sh {0}
 
 
         
