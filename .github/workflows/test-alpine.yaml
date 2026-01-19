@@ -31,11 +31,16 @@ jobs:
             libgit2-dev
             meson
             gcc
+            platformio-core
     
       - name: Run script inside Alpine chroot as the default user (unprivileged)
         run: |
           ls -la  # as you would expect, you're in your workspace directory
           gcc --version
+          pio run
         shell: alpine.sh {0}
+
+
+
 
         
