@@ -25,6 +25,7 @@ jobs:
       - name: Setup latest Alpine Linux
         uses: jirutka/setup-alpine@v1
         with:
+          arch: armv7
           branch: edge
           packages: >
             build-base
@@ -36,7 +37,9 @@ jobs:
         run: |
           ls -la  # as you would expect, you're in your workspace directory
           gcc --version
-          apk add git platformio-core  platformio-core-pyc py3-meshtastic py3-pip gcc musl-dev file-dev  argp-standalone  g++ linux-headers klibc-dev libxkbcommon-dev libinput-dev libx11-dev
+          apk update
+          apk add git gcc musl-dev file-dev argp-standalone g++ linux-headers klibc-dev libxkbcommon-dev libinput-dev libx11-dev
+          apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip 
           pio run
         shell: alpine.sh --root {0}
 
