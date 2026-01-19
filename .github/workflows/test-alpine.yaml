@@ -37,6 +37,7 @@ jobs:
         run: |
           ls -la  # as you would expect, you're in your workspace directory
           gcc --version
+          cat /etc/apk/repositories
           apk update
           apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --repository http://dl-cdn.alpinelinux.org/alpine/edge/community platformio-core platformio-core-pyc py3-meshtastic py3-pip
           apk add git gcc musl-dev file-dev argp-standalone g++ linux-headers klibc-dev libxkbcommon-dev libinput-dev libx11-dev
