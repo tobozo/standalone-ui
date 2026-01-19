@@ -36,7 +36,7 @@ jobs:
         run: |
           ls -la  # as you would expect, you're in your workspace directory
           gcc --version
-          sudo apk add git platformio-core  platformio-core-pyc py3-meshtastic py3-pip gcc musl-dev file-dev  argp-standalone  g++ linux-headers klibc-dev libxkbcommon-dev libinput-dev libx11-dev
+          apk add git platformio-core  platformio-core-pyc py3-meshtastic py3-pip gcc musl-dev file-dev  argp-standalone  g++ linux-headers klibc-dev libxkbcommon-dev libinput-dev libx11-dev
           pio run
         shell: alpine.sh --root {0}
 
