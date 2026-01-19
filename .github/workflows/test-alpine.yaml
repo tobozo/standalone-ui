@@ -1,0 +1,41 @@
+
+name: AlpineBuild
+
+
+on:
+  push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.hpp'
+    - '**.h'
+    - '**.c'
+    - '**test-alpine.yaml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+    
+      - name: Setup latest Alpine Linux
+        uses: jirutka/setup-alpine@v1
+        with:
+          branch: edge
+          packages: >
+            build-base
+            libgit2-dev
+            meson
+            gcc
+    
+      - name: Run script inside Alpine chroot as the default user (unprivileged)
+        run: |
+          ls -la  # as you would expect, you're in your workspace directory
+          gcc --version
+        shell: alpine.sh {0}
+
+        
