@@ -49,10 +49,10 @@ jobs:
           gcc --version
           cat /etc/alpine-release
           cat /etc/apk/repositories
-          apk update
           apk add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing
-          apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip
-          pio run
+          apk update
+          # apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip
+          # pio run
         shell: alpine.sh --root {0}
 
 
