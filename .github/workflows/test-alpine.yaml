@@ -38,6 +38,9 @@ jobs:
             gcc 
             musl-dev 
             file-dev
+            libuv-dev 
+            i2c-tools-dev 
+            libgpiod-dev
             argp-standalone 
             g++ 
             linux-headers 
@@ -49,6 +52,7 @@ jobs:
             platformio-core-pyc 
             py3-meshtastic
             py3-pip
+            
     
       - name: Print environment
         run: |
