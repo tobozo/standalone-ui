@@ -27,6 +27,8 @@ jobs:
         with:
           arch: armv7
           branch: edge
+          extra-repositories: |
+            http://dl-cdn.alpinelinux.org/alpine/edge/testing
           packages: >
             build-base
             libgit2-dev
@@ -49,10 +51,9 @@ jobs:
           gcc --version
           cat /etc/alpine-release
           cat /etc/apk/repositories
-          apk add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing
           apk update
-          # apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip
-          # pio run
+          apk add platformio-core platformio-core-pyc py3-meshtastic py3-pip
+          pio run
         shell: alpine.sh --root {0}
 
 
